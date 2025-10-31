@@ -1,0 +1,14 @@
+SELECT m.memberSurname, m.memberForename, n.narrowDesc
+FROM member m
+JOIN memberNarrow mn ON mn.memberNarrowMemberID = m.memberID
+JOIN narrow n ON n.narrowID = mn.memberNarrowNarrowID
+JOIN broad b ON b.broadID = n.narrowBroadID
+WHERE b.broadDesc = 'Environmental Security'
+  AND NOT EXISTS (
+    SELECT *
+    FROM memberBroad mb
+    JOIN broad b2 ON b2.broadID = mb.memberBroadBroadID
+    WHERE mb.memberBroadMemberID = m.memberID
+      AND b2.broadDesc = 'Environmental Security'
+  )
+ORDER BY m.memberSurname, m.memberForename

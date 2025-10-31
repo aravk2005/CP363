@@ -1,0 +1,6 @@
+SELECT n.narrowDesc
+FROM narrow n
+WHERE NOT EXISTS (SELECT * 
+                  FROM memberNarrow mn 
+                  WHERE mn.memberNarrowNarrowId = n.narrowId)
+ORDER BY n.narrowDesc

@@ -1,0 +1,6 @@
+SELECT b.broadDesc
+FROM broad b
+WHERE NOT EXISTS (SELECT *
+                  FROM memberBroad mb
+                  WHERE mb.memberBroadBroadId = b.broadId)
+ORDER BY b.broadDesc

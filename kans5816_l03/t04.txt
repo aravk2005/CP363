@@ -1,0 +1,10 @@
+SELECT m.memberSurname, m.memberForename, b.broadDesc
+FROM member m
+JOIN memberBroad mb ON mb.memberBroadMemberId = m.memberId
+JOIN broad b ON mb.memberBroadBroadId = b.broadId
+WHERE NOT EXISTS 
+    (SELECT * 
+     FROM pub p 
+     WHERE p.pubMemberId = m.MemberId)
+
+ORDER BY m.memberSurname, m.memberForename, b.broadDesc

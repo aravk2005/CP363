@@ -1,0 +1,9 @@
+SELECT m.memberSurname, m.memberForename, 
+        (SELECT COUNT(*)
+         FROM memberNarrow mn
+         WHERE mn.memberNarrowMemberId = m.memberId) AS narrowCount
+FROM member m
+WHERE (SELECT COUNT(*)
+       FROM memberNarrow mn
+       WHERE mn.memberNarrowMemberId = m.memberId) >= 30
+ORDER BY m.memberSurname, m.memberForename
