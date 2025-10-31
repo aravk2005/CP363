@@ -1,0 +1,8 @@
+SELECT memberSurname, memberForename, broadDesc, narrowDesc
+FROM member INNER JOIN memberNarrow
+ON memberId = memberNarrowMemberId 
+INNER JOIN narrow 
+ON narrowId = memberNarrowNarrowId 
+INNER JOIN broad 
+ON broadId = narrowBroadId
+ORDER BY memberSurname, memberForename, narrowDesc

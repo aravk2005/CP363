@@ -1,0 +1,5 @@
+SELECT memberSurname, memberForename, COUNT(memberNarrowNarrowId) AS number_of_narrow_expertise
+FROM member LEFT OUTER JOIN memberNarrow 
+ON memberId = memberNarrowMemberId
+GROUP BY memberId, memberSurname, memberForename
+ORDER BY memberSurname, memberForename 

@@ -1,0 +1,5 @@
+SELECT memberSurname, memberForename, pubTitle
+FROM member INNER JOIN pub
+ON memberId = pubMemberId
+WHERE pubPubType = 'c' AND pubTitle LIKE '%Nuclear%' 
+ORDER BY pubTitle 

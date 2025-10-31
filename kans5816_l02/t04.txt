@@ -1,0 +1,7 @@
+SELECT pubTitle, pubTypeDesc
+FROM pub INNER JOIN member
+ON memberId = pubMemberId
+INNER JOIN pubType
+ON pubType = pubPubType
+WHERE memberSurname = 'Bain' AND memberForename = 'William'
+ORDER BY pubTitle

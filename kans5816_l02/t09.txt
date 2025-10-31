@@ -1,0 +1,5 @@
+SELECT broadDesc, COUNT(memberBroadMemberId) AS number_of_members
+FROM broad LEFT OUTER JOIN memberBroad 
+ON broadId = memberBroadBroadId
+GROUP BY broadId, broadDesc
+ORDER BY broadDesc

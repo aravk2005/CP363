@@ -1,0 +1,5 @@
+SELECT memberSurname, memberForename, COUNT(pubId) AS pubId_count
+FROM member LEFT OUTER JOIN pub
+ON memberId = pubMemberId 
+GROUP BY memberSurname, memberForename
+ORDER BY memberSurname, memberForename

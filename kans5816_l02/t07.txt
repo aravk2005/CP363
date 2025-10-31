@@ -1,0 +1,5 @@
+SELECT pubTypeDesc, COUNT(pubId) AS publication_num
+FROM pub LEFT OUTER JOIN pubType
+ON pubType = pubPubType 
+GROUP BY pubType, pubTypeDesc
+ORDER BY pubTypeDesc

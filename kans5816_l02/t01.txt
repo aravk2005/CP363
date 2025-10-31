@@ -1,0 +1,6 @@
+SELECT memberSurname, memberForename, pubTypeDesc, pubTitle
+FROM member LEFT OUTER JOIN pub
+ON memberId = pubMemberId
+LEFT OUTER JOIN pubType
+ON pubType = pubPubType 
+ORDER BY memberSurname, memberForename, pubTypeDesc, pubTitle

@@ -1,0 +1,5 @@
+SELECT narrowDesc, COUNT(memberNarrowMemberId) AS number_of_members
+FROM narrow LEFT OUTER JOIN memberNarrow 
+ON narrowId = memberNarrowNarrowId
+GROUP BY narrowId, narrowDesc
+ORDER BY narrowDesc
