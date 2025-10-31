@@ -1,0 +1,1 @@
+SELECT pubTitle, pubMemberId FROM pub ORDER BY pubTitle
